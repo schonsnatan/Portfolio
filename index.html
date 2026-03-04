@@ -276,7 +276,7 @@
       transition: all .22s ease;
       letter-spacing: .02em;
     }
-    .btn-primary:hover { background: #93c5fd; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(96,165,250,.25); }
+    .btn-primary:hover { background: #00ffd9; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,229,195,.25); }
 
     .btn-outline {
       display: inline-flex;
@@ -327,11 +327,83 @@
     .t-cmd { color: var(--text); }
     .t-comment { color: var(--muted); }
     .t-output { color: #7dd3c8; }
-    .t-val { color: #e8edf5; }
+    .t-val { color: #fbbf24; }
     .cursor { display: inline-block; width: 8px; height: 14px; background: var(--accent); vertical-align: text-bottom; animation: blink 1.1s steps(1) infinite; }
     @keyframes blink { 0%,49%{opacity:1} 50%,100%{opacity:0} }
 
     @media(max-width: 900px) { .hero-terminal { display: none; } }
+
+    /* ─── COMPREHENSIVE MOBILE RESPONSIVE ───────────────── */
+
+    /* Tablet (≤900px) */
+    @media(max-width: 900px) {
+      .projects-grid { grid-template-columns: 1fr 1fr; }
+      .project-card.featured { grid-column: span 1; }
+    }
+
+    /* Mobile (≤768px) */
+    @media(max-width: 768px) {
+      /* Global spacing */
+      section { padding: 4rem 0; }
+      .container { padding: 0 1.2rem; }
+
+      /* Hero */
+      #hero { min-height: 100svh; padding-top: 64px; }
+      #hero > .container > div {
+        display: flex !important;
+        flex-direction: column;
+        gap: 0;
+      }
+      .hero-label { font-size: .72rem; margin-bottom: 1.1rem; }
+      .hero-title { font-size: 1rem; margin-bottom: 1.2rem; }
+      .hero-bio { font-size: .92rem; margin-bottom: 2rem; }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .75rem;
+      }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-outline { justify-content: center; }
+      .medium-badge { width: 100%; justify-content: center; }
+
+      /* About */
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+
+      /* Projects */
+      .projects-grid { grid-template-columns: 1fr; }
+      .project-card.featured { grid-column: span 1; }
+      .projects-header { flex-direction: column; align-items: flex-start; }
+
+      /* Experience */
+      .exp-layout { grid-template-columns: 1fr; gap: 0; }
+      .exp-nav { display: none; }
+      .exp-item { grid-template-columns: 1fr; gap: .4rem; padding: 1.6rem 0; }
+      .exp-period { display: flex; align-items: center; gap: .6rem; }
+      .exp-period .year { font-size: .9rem; display: inline; }
+
+      /* Education grid */
+      .edu-grid { grid-template-columns: 1fr !important; }
+
+      /* Contact */
+      .contact-inner {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      .contact-heading { font-size: 2.2rem; }
+
+      /* Footer */
+      footer { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    }
+
+    /* Small phones (≤400px) */
+    @media(max-width: 400px) {
+      .hero-actions .btn-primary,
+      .hero-actions .btn-outline { padding: .75rem 1rem; font-size: .82rem; }
+      .about-stats { grid-template-columns: 1fr 1fr; gap: .75rem; }
+      .stat-num { font-size: 1.5rem; }
+    }
 
     /* ─── SECTION BASE ──────────────────────────────────── */
     section { padding: 6rem 0; }
@@ -451,11 +523,6 @@
     }
     .skill-badge:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
     .skill-badge .dot-lang { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-
-    @media(max-width: 768px) {
-      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-stats { grid-template-columns: 1fr 1fr; }
-    }
 
     /* ─── PROJECTS ──────────────────────────────────────── */
     #projects { background: var(--bg-2); }
@@ -583,15 +650,6 @@
     .st-dk  { background: rgba(148,163,184,.08); color: #94a3b8; }
     .st-ml  { background: rgba(251,146,60,.1); color: #fdba74; }
 
-    @media(max-width: 900px) {
-      .projects-grid { grid-template-columns: 1fr 1fr; }
-      .project-card.featured { grid-column: span 1; }
-    }
-    @media(max-width: 600px) {
-      .projects-grid { grid-template-columns: 1fr; }
-      .project-card.featured { grid-column: span 1; }
-    }
-
     /* ─── EXPERIENCE ────────────────────────────────────── */
     #experience { background: var(--bg); }
 
@@ -667,13 +725,6 @@
     .exp-desc li { margin-bottom: .3rem; margin-left: 1rem; }
 
     .exp-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .9rem; }
-
-    @media(max-width: 768px) {
-      .exp-layout { grid-template-columns: 1fr; gap: 0; }
-      .exp-nav { display: none; }
-      .exp-item { grid-template-columns: 1fr; gap: .5rem; }
-      .edu-grid { grid-template-columns: 1fr !important; }
-    }
 
     /* ─── CONTACT / FOOTER ──────────────────────────────── */
     #contact {
@@ -796,11 +847,6 @@
     .footer-links a { font-size: .8rem; color: var(--muted); transition: color .2s; }
     .footer-links a:hover { color: var(--accent); }
 
-    @media(max-width: 768px) {
-      .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
-      footer { flex-direction: column; align-items: flex-start; }
-    }
-
     /* ─── Medium badge ───────────────────────────────────── */
     .medium-badge {
       display: inline-flex;
@@ -913,7 +959,7 @@
       <div class="container">
         <div class="reveal">
           <div class="section-tag">About me</div>
-          <h2 class="section-title">Turning data into insight.</h2>
+          <h2 class="section-title">Build with purpose.<br>Code with discipline.</h2>
         </div>
 
         <div class="about-grid">
@@ -934,19 +980,19 @@
             <div class="about-stats">
               <div class="stat-card">
                 <div class="stat-num">SAP</div>
-                <div class="stat-label">Data Scientist</div>
+                <div class="stat-label">Data Scientist · LX Lab</div>
               </div>
               <div class="stat-card">
-                <div class="stat-num">Student</div>
-                <div class="stat-label">Bachelor's degree Computer Science</div>
+                <div class="stat-num">3</div>
+                <div class="stat-label">International Awards</div>
               </div>
               <div class="stat-card">
                 <div class="stat-num">4</div>
                 <div class="stat-label">Languages Spoken</div>
               </div>
               <div class="stat-card">
-                <div class="stat-num">Medium</div>
-                <div class="stat-label">Writer · Data Science, Machine Learning & AI</div>
+                <div class="stat-num">Top</div>
+                <div class="stat-label">Writer · Medium</div>
               </div>
             </div>
           </div>
@@ -1181,12 +1227,20 @@
                 <p class="exp-desc" style="margin-bottom:.9rem">
                   Member of the SAP Language Experience Lab, driving AI-powered translation solutions for SAP products across multiple languages at global scale. I work at the intersection of AI Engineering and Data Science, focused on Large Language Models, RAG pipelines, and cloud infrastructure integration.
                 </p>
+                <ul class="exp-desc" style="padding-left:1rem; margin-bottom:.9rem">
+                  <li>Executing <strong>Prompt Engineering, RAG pipelines, embeddings, and vector stores</strong> to optimize automated translation workflows.</li>
+                  <li>Orchestrating models and integrating with microservices/APIs in cloud and on-premise environments.</li>
+                  <li>Evaluating AI models using quality metrics to ensure output reliability.</li>
+                  <li>Leveraging hyperscaler platforms (Azure, AWS, GCP) for AI application deployment.</li>
+                  <li>Data analysis using BI tools, dashboarding, and statistical model evaluation.</li>
+                </ul>
                 <div class="exp-tags">
                   <span class="tag">Python</span>
-                  <span class="tag">RAG Pipelines</span>
+                  <span class="tag">RAG</span>
                   <span class="tag">LLMs</span>
+                  <span class="tag">Embeddings</span>
                   <span class="tag">Vector Stores</span>
-                  <span class="tag">SAP AI Core</span>
+                  <span class="tag">Azure · AWS · GCP</span>
                   <span class="tag">SAP BTP</span>
                 </div>
               </div>
